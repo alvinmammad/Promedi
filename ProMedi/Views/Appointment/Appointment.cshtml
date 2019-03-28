@@ -1,0 +1,99 @@
+﻿@model VmAppointment
+@{
+    ViewBag.Title = "Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-7">
+                    <h2>Appointment</h2>
+                </div>
+
+                <div class="col-md-6 col-lg-5">
+                    <ul>
+                        <li><a href="@Url.Action("home","home")">Home</a></li>
+                        <li>Appointment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="appointment-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-lg-5 p-0">
+                    <div class="contant-number">
+                        <h3><i class="icofont-phone"></i>@Model.Setting.Phone</h3>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-7 p-0">
+                    <div class="appointment-form">
+                        <h2 class="title">Make an Appointment</h2>
+                        <form action="@Url.Action("appointment","appointment")" method="post">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 pr-10">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="id_name" placeholder="Name" name="Name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pl-10">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="id_email" placeholder="Email" name="Mail">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pr-10">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="id_phone_number" placeholder="Phone Number" name="Phone">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pl-10">
+                                    <div class="form-group">
+                                        <select class="form-control" name="DepartmentID">
+                                            <option>Department</option>  
+                                            @foreach (var department in Model.Departments)
+                                            {
+                                                <option value="@department.ID">@department.Name</option>
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pr-10">
+                                    <div class="form-group">
+                                        <select class="form-control" name="DoctorID">
+                                            <option>Doctor</option>
+                                            @foreach (var doctor in Model.Doctors)
+                                            {
+                                                <option value="@doctor.ID">@doctor.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pl-10">
+                                    <div class="form-group">
+                                        <input class="form-control hasDatepicker" id="datepicker" placeholder="Booking Date" name="Date">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" rows="4" placeholder="Message" name="Message"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn book-now-btn">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+   

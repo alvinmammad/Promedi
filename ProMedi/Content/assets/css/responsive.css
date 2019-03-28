@@ -1,0 +1,793 @@
+@media only screen and (max-width: 767px) {
+  p {
+    font-size: 14px;
+  }
+  .ptb-100 {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+  .pt-100 {
+    padding-top: 45px;
+  }
+  .pb-50 {
+    padding-bottom: 10px;
+  }
+  .section-title {
+    margin-bottom: 45px;
+  }
+  .section-title h2 {
+    font-size: 24px;
+  }
+  .mb-minus-330 {
+    margin-bottom: 0;
+  }
+  .pt-330 {
+    padding-top: 45px;
+  }
+  .pb-70 {
+    padding-bottom: 15px;
+  }
+  .default-btn {
+    padding: 7px 28px;
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+  .main-header {
+    position: relative;
+  }
+  .header-info-text {
+    display: none;
+  }
+  .navbar-light .navbar-toggler {
+    color: #396cf0;
+    border-color: #396cf0;
+    border-radius: 2px;
+  }
+  .navbar-light .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(57, 108, 240, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  .navbar-light .navbar-collapse {
+    height: 291px;
+    overflow-y: scroll;
+  }
+  .navbar-light .navbar-collapse .navbar-nav {
+    margin-top: 10px !important;
+  }
+  .navbar-light .navbar-collapse .navbar-nav .nav-link {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 13px;
+  }
+  .navbar-light .navbar-collapse .appointment-inline {
+    margin-left: 4px;
+    margin-top: 5px;
+  }
+  .hero-slider .hs-item {
+    height: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .hero-slider .hs-item .hero-text {
+    max-width: 100%;
+    margin-top: 0;
+    width: 100%;
+  }
+  .hero-slider .hs-item .hero-text h1 {
+    font-size: 40px;
+  }
+  .hero-slider .hs-item .hero-text h1 br {
+    display: none;
+  }
+  .hero-slider .hs-item .hero-text .default-btn {
+    display: none;
+  }
+  .hero-slider button.owl-prev, .hero-slider button.owl-next {
+    left: 5px;
+    width: 45px;
+    height: 45px;
+    margin: 0 0 0 0 !important;
+    font-size: 20px !important;
+  }
+  .hero-slider button.owl-next {
+    left: auto;
+    right: 5px;
+  }
+  .video-section .video-content {
+    height: auto;
+  }
+  .services-box {
+    margin-top: 0;
+    padding: 45px 0 15px;
+    border-bottom: 1px solid #eeeeee;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    max-width: 100%;
+  }
+  .single-card .caption-text {
+    padding: 25px 15px;
+  }
+  .single-card .caption-text h3 {
+    font-size: 18px;
+  }
+  .single-card .caption-text .designation {
+    font-size: 14px;
+  }
+  .single-card .thumb-img img {
+    width: 100%;
+  }
+  .about-section .about-us-text {
+    margin-top: 30px;
+  }
+  .about-section .about-us-text h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .call-to-action {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .call-to-action .call-to-action-text {
+    padding-left: 65px;
+  }
+  .call-to-action .call-to-action-text h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .call-to-action .call-to-action-text i {
+    font-size: 45px;
+  }
+  .call-to-action .default-btn {
+    margin-top: 15px;
+    margin-left: 65px;
+  }
+  .department-section .single-department {
+    margin-bottom: 35px;
+  }
+  .department-section .single-department i {
+    font-size: 30px;
+    height: 65px;
+    width: 65px;
+    line-height: 65px;
+  }
+  .department-section .single-department h3 {
+    font-size: 18px;
+  }
+  .video-section .video-content .sonar-wrapper .sonar-emitter {
+    width: 85px;
+    height: 85px;
+  }
+  .video-section .video-content .play-video {
+    height: 85px;
+    width: 85px;
+    line-height: 85px;
+    font-size: 35px;
+  }
+  .counter-section .single-counter i {
+    font-size: 35px;
+  }
+  .counter-section .single-counter h3 {
+    font-size: 30px;
+    margin: 15px 0 4px;
+  }
+  .counter-section .single-counter p {
+    font-size: 15px;
+  }
+  .single-box {
+    padding-left: 50px;
+    margin-bottom: 30px;
+  }
+  .single-box .icon {
+    font-size: 35px;
+  }
+  .single-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .welcome-inner-content {
+    margin-top: 0;
+  }
+  .welcome-inner-content span {
+    font-size: 14px;
+  }
+  .welcome-inner-content h3 {
+    font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: 13px;
+  }
+  .welcome-inner-content ul li {
+    float: none;
+    width: 100%;
+  }
+  .welcome-inner-content .welcome-image {
+    margin-bottom: 30px;
+  }
+  .services-section {
+    padding-bottom: 15px;
+  }
+  .single-services {
+    padding: 20px 15px;
+  }
+  .single-services .icon {
+    width: 65px;
+    height: 66px;
+    line-height: 63px;
+    font-size: 25px;
+  }
+  .single-services h3 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .owl-theme-2 button.owl-prev {
+    left: -15px;
+    font-size: 20px !important;
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 28px !important;
+  }
+  .owl-theme-2 button.owl-next {
+    left: auto;
+    right: -15px;
+    font-size: 20px !important;
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 28px !important;
+  }
+  .appointment-area .contant-number h3 {
+    position: relative;
+    bottom: 0;
+    font-size: 22px;
+    padding: 25px 0;
+    text-align: center;
+  }
+  .appointment-area .appointment-form {
+    max-width: 100%;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .appointment-area .appointment-form .title {
+    font-size: 25px;
+    text-align: center;
+  }
+  .appointment-area .appointment-form .form-group {
+    margin-bottom: 10px;
+  }
+  .appointment-area .appointment-form .pr-10 {
+    padding-right: 15px;
+  }
+  .appointment-area .appointment-form .pl-10 {
+    padding-left: 15px;
+  }
+  .appointment-area .appointment-form .form-control {
+    padding: 7px 8px;
+    border-radius: 3px;
+  }
+  .appointment-area .appointment-form .book-now-btn {
+    padding: 11px 29px;
+    margin-top: 6px;
+  }
+  .cta-area .cta-doctor-img {
+    display: none;
+  }
+  .cta-area .cta-text-content {
+    max-width: 100%;
+  }
+  .cta-area .cta-text-content h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .cta-area .cta-text-content p {
+    font-size: 16px;
+    margin: 10px 0 0;
+  }
+  .cta-area .cta-text-content .cta-contant {
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  .tab .tabs {
+    margin-bottom: 15px;
+  }
+  .tab .tabs li {
+    -ms-flex: 0 0 50%;
+    -webkit-box-flex: 0;
+            flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+  }
+  .tab .tabs li a {
+    padding: 20px 10px;
+    font-size: 13px;
+  }
+  .tab .tabs li a i {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .tab .tabs li:last-child a {
+    border-radius: 0 0 30px 0;
+  }
+  .tab .tab_content .tabs_item .tabs_item_content {
+    padding: 20px 15px;
+  }
+  .tab .tab_content .tabs_item .tabs_item_content h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 25px;
+  }
+  .actical-card .meta-tag li {
+    margin-right: 10px;
+  }
+  .actical-card .meta-tag li::before {
+    right: -6px;
+  }
+  .newsletter-section .section-title {
+    margin-bottom: 25px;
+  }
+  .page-title {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  .page-title h2 {
+    font-size: 25px;
+  }
+  .page-title ul {
+    text-align: center;
+    margin-top: 5px;
+  }
+  .page-title ul li {
+    font-size: 15px;
+  }
+  .department-desc h3 {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 15px;
+    margin-top: -5px;
+  }
+  .share-department {
+    margin-top: 20px;
+  }
+  .share-department h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .department-sidebar {
+    margin-top: 20px;
+  }
+  .department-sidebar .department-info {
+    margin-bottom: 20px;
+  }
+  .department-sidebar .department-info h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .doctors-desc h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .doctors-sidebar {
+    margin-top: 20px;
+  }
+  .doctors-sidebar .doctors-info h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .single-questions h4 {
+    font-size: 18px;
+    margin-bottom: 13px;
+    line-height: 25px;
+  }
+  .faq-contact {
+    margin-top: 30px;
+    padding: 20px 15px;
+  }
+  .faq-contact h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .faq-contact .form-group {
+    margin-bottom: 10px;
+  }
+  .error-area .error h2 {
+    font-size: 65px;
+  }
+  .error-area .error h2 img {
+    margin-bottom: 15px;
+  }
+  .error-area .error h4 {
+    font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+  }
+  .error-area .error p {
+    margin-bottom: 15px;
+  }
+  .pagination-area {
+    margin-top: 10px;
+  }
+  .pagination-area ul .page-item .page-link {
+    width: 40px;
+    height: 40px;
+    margin: 0 3px;
+    line-height: 40px;
+    font-size: 14px;
+  }
+  .side-bar {
+    margin-top: 30px;
+  }
+  .side-bar .widget .title {
+    font-size: 20px;
+  }
+  .side-bar .widget .title::before {
+    bottom: -6px;
+    height: 2px;
+  }
+  .side-bar .latest-post .single-post {
+    padding-left: 125px;
+    margin-bottom: 15px;
+  }
+  .side-bar .latest-post .single-post .content {
+    margin-top: -6px;
+  }
+  .side-bar .latest-post .single-post .content ul li {
+    font-size: 14px;
+  }
+  .side-bar .latest-post .single-post .content h4 {
+    margin-top: 0;
+  }
+  .side-bar .latest-post .single-post .content h4 a {
+    font-size: 14px;
+  }
+  .side-bar .categories ul li {
+    margin-bottom: 8px;
+  }
+  .side-bar .categories ul li a {
+    font-size: 14px;
+  }
+  .side-bar .popular-tags ul li a {
+    font-size: 14px;
+    padding: 4px 11px;
+  }
+  .side-bar .quick-contact h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .blog-details-area .blog-details .article-img .date {
+    bottom: 2px;
+    width: 65px;
+    right: 2px;
+    height: 60px;
+    font-size: 15px;
+    padding-top: 8px;
+    line-height: 22px;
+  }
+  .blog-details-area .blog-details .article-content {
+    padding: 20px 15px;
+  }
+  .blog-details-area .blog-details .article-content ul.category {
+    margin-bottom: 20px;
+  }
+  .blog-details-area .blog-details .article-content ul.category li a {
+    padding: 3px 14px 1px;
+    margin-bottom: 3px;
+    font-size: 13px;
+  }
+  .blog-details-area .blog-details .article-content h3 {
+    font-size: 18px;
+    margin-bottom: -10px;
+    line-height: 26px;
+  }
+  .blog-details-area .blog-details .article-content .blockquote {
+    padding: 20px 15px;
+    border-left: 3px solid #396cf0;
+  }
+  .blog-details-area .blog-details .article-content .blockquote p {
+    font-size: 15px;
+  }
+  .blog-details-area .post-controls-buttons {
+    text-align: center;
+    padding: 20px 15px;
+  }
+  .blog-details-area .post-controls-buttons div a {
+    padding: 7px 18px;
+    font-size: 14px;
+  }
+  .blog-details-area .post-comments {
+    padding: 20px 15px;
+  }
+  .blog-details-area .post-comments h3 {
+    font-size: 18px;
+  }
+  .blog-details-area .post-comments .single-comment {
+    padding-left: 0;
+  }
+  .blog-details-area .post-comments .single-comment .comment-img {
+    position: relative;
+  }
+  .blog-details-area .post-comments .single-comment .comment-content {
+    margin-top: 20px;
+  }
+  .blog-details-area .post-comments .single-comment.left-m {
+    margin-left: 30px;
+  }
+  .blog-details-area .leave-a-reply {
+    padding: 20px 15px;
+  }
+  .blog-details-area .leave-a-reply h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .blog-details-area .leave-a-reply .form-group {
+    margin-bottom: 10px;
+  }
+  .contact-area .title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .contact-area .opening-hours {
+    margin-bottom: 30px;
+  }
+  .contact-area p {
+    margin-bottom: 0;
+  }
+  .contact-area #contactForm {
+    margin-top: 20px;
+  }
+  .contact-area #contactForm .form-group {
+    margin-bottom: 10px;
+  }
+  .contact-area #contactForm .form-group .default-btn {
+    margin-top: 10px;
+  }
+  .footer-widget {
+    margin-bottom: 30px;
+    margin-top: 0;
+  }
+  .footer-widget h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .separate-line {
+    margin: 10px 0 30px;
+  }
+  .bottom-footer {
+    margin-bottom: 20px;
+  }
+  .bottom-footer ul {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .bottom-footer ul li {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ptb-100 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .pt-100 {
+    padding-top: 70px;
+  }
+  .pb-50 {
+    padding-bottom: 40px;
+  }
+  .section-title h2 {
+    font-size: 30px;
+  }
+  .pt-330 {
+    padding-top: 330px;
+  }
+  .pb-70 {
+    padding-bottom: 40px;
+  }
+  .header-info-text .contact-info li {
+    line-height: 18px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  .navbar-light .navbar-toggler {
+    color: #396cf0;
+    border-color: #396cf0;
+    border-radius: 2px;
+  }
+  .navbar-light .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(57, 108, 240, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  .navbar-light .navbar-collapse {
+    height: 291px;
+    overflow-y: scroll;
+  }
+  .navbar-light .navbar-collapse .navbar-nav {
+    margin-top: 10px !important;
+  }
+  .navbar-light .navbar-collapse .navbar-nav .nav-link {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 13px;
+  }
+  .navbar-light .navbar-collapse .appointment-inline {
+    margin-left: 4px;
+    margin-top: 5px;
+  }
+  .hero-slider .hs-item {
+    height: 100%;
+    padding-top: 280px;
+    padding-bottom: 130px;
+  }
+  .hero-slider .hs-item .hero-text {
+    max-width: 100%;
+    margin-top: 0;
+  }
+  .hero-slider .hs-item .hero-text h1 {
+    font-size: 55px;
+  }
+  .hero-slider button.owl-prev, .hero-slider button.owl-next {
+    left: 10px;
+    margin: 35px 0 0 0 !important;
+  }
+  .hero-slider button.owl-next {
+    left: auto;
+    right: 10px;
+  }
+  .services-box {
+    margin-top: 0;
+    padding: 70px 0 40px;
+    border: none;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .about-section .about-us-img {
+    text-align: center;
+  }
+  .about-section .about-us-text {
+    margin-top: 30px;
+  }
+  .about-section .about-us-text h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+  .call-to-action .default-btn {
+    margin-top: 20px;
+    margin-left: 75px;
+  }
+  .department-section .single-department {
+    margin-bottom: 30px;
+  }
+  .department-section .single-department i {
+    font-size: 30px;
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+  }
+  .counter-section .single-counter i {
+    font-size: 40px;
+  }
+  .counter-section .single-counter h3 {
+    font-size: 30px;
+  }
+  .counter-section .single-counter p {
+    font-size: 16px;
+  }
+  .owl-theme-2 button.owl-prev, .owl-theme-2 button.owl-next {
+    left: -20px;
+  }
+  .owl-theme-2 button.owl-next {
+    left: auto;
+    right: -20px;
+  }
+  .appointment-area .contant-number h3 {
+    position: relative;
+    bottom: 0;
+    padding: 40px 0 35px;
+    text-align: center;
+  }
+  .appointment-area .appointment-form {
+    max-width: 100%;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .appointment-area .appointment-form .title {
+    font-size: 30px;
+  }
+  .cta-area .cta-text-content h3 {
+    font-size: 30px;
+  }
+  .cta-area .cta-text-content p {
+    font-size: 18px;
+  }
+  .cta-area .cta-text-content .cta-contant {
+    font-size: 30px;
+  }
+  .cta-area .cta-doctor-img {
+    display: none;
+  }
+  .welcome-section .single-box {
+    margin-bottom: 30px;
+  }
+  .welcome-section .welcome-inner-content {
+    margin-top: 30px;
+  }
+  .welcome-section .welcome-inner-content .welcome-image {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .services-section {
+    padding-bottom: 40px;
+  }
+  .side-bar {
+    margin-top: 30px;
+  }
+  .doctors-sidebar {
+    margin-top: 25px;
+  }
+  .tab .tabs li {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .tab .tabs li a {
+    padding: 20px 2px;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+  .tab .tabs li a i {
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+  .tab .tab_content .tabs_item .tabs_item_img img {
+    width: 100%;
+  }
+  .tab .tab_content .tabs_item .tabs_item_content {
+    padding: 30px 20px;
+  }
+  .department-sidebar .department-info {
+    margin-bottom: 0;
+    margin-top: 25px;
+  }
+  .opening-hours {
+    margin-bottom: 30px;
+  }
+  .footer-widget {
+    margin-bottom: 30px;
+  }
+  .separate-line {
+    border: .5px solid #eeeeee;
+    margin: 10px 0 40px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .owl-theme-2 button.owl-prev {
+    left: -25px;
+  }
+  .owl-theme-2 button.owl-next {
+    left: auto;
+    right: -25px;
+  }
+  .appointment-area .appointment-form {
+    padding-left: 20px;
+    padding-right: 15px;
+  }
+  .tab .tabs li a {
+    font-size: 14px;
+  }
+  .tab .tab_content .tabs_item {
+    background: transparent;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+  }
+  .tab .tab_content .tabs_item .tabs_item_content {
+    padding: 0;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */

@@ -1,0 +1,379 @@
+﻿@model VmHome
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="hero-slider owl-carousel owl-theme">
+        <div class="hs-item hs-item-bg1">
+            <div class="d-table">
+                <div class="d-tablecell">
+                    <div class="hero-text text-center">
+                        <h1>We Always Care Your <br> Health</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hs-item hs-item-bg2">
+            <div class="d-table">
+                <div class="d-tablecell">
+                    <div class="hero-text text-center">
+                        <h1>Best Care & Better <br> Doctor</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hs-item hs-item-bg3">
+            <div class="d-table">
+                <div class="d-tablecell">
+                    <div class="hero-text text-center">
+                        <h1>We Always Care Your <br> Health</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Hero Slider -->
+    <!-- Services -->
+    <div class="services-area services-box">
+        <div class="container">
+            <div class="row">
+                @foreach (var card in Model.HomeCards)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="single-card">
+                            <div class="thumb-img">
+                                <img src="~/Uploads/@card.Photo" alt="@card.Title" />
+                            </div>
+
+                            <div class="caption-text text-center">
+                                <h3>@card.Name</h3>
+                                <p>@card.Title</p>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- End Services -->
+    <!-- About Section -->
+    <section class="about-section ptb-100">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-12 col-lg-6">
+                    <div class="about-us-img">
+                        <img src="@Model.About.Photo" alt="@Model.About.Title">
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-6">
+                    <div class="about-us-text">
+                        <h2>@Model.About.Title</h2>
+
+                        <p>@Model.About.Desc</p>
+
+                        <a href="@Url.Action("about","about")" class="default-btn">About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End about section -->
+    <!-- Call To Action -->
+    <section class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-9">
+                    <div class="call-to-action-text">
+                        <i class="icofont-first-aid"></i>
+                        <h3>Health Care Center</h3>
+                        <p>if you have any Emerangcy by health problem contact this <span>@Model.Setting.Phone</span> or contact form</p>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-3">
+                    <a href="#" class="default-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Call To Action -->
+    <!-- Departments section -->
+    <section class="department-section pt-100 pb-50 gray-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Departments</h2>
+                <p>We are ready to build your dream future Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, beatae. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="row">
+                @foreach (var department in Model.Departments)
+                {
+                    <div class="col-md-4 col-lg-3">
+                        <div class="single-department">
+                            <i class="@department.Icon"></i>
+                            <h3>@department.Name</h3>
+                            <p>@department.Desc</p>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </section>
+    <!-- End Departments section -->
+    <!-- Video Section -->
+    <section class="video-section ptb-100">
+        <div class="container">
+            <div class="section-title white-title">
+                <h2>Watch Our Video</h2>
+                <p>We are ready to build your dream future Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, beatae. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="video-content mb-minus-330">
+                <div class="d-table">
+                    <div class="d-tablecell">
+                        <div class="sonar-wrapper">
+                            <div class="sonar-emitter">
+                                <div class="sonar-wave"></div>
+                                <a href="https://www.youtube.com/watch?v=LFBxRxwY4Qw" class="play-video popup-youtube">
+                                    <i class="icofont-play"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Video Section -->
+    <!-- Counter section -->
+    <div class="counter-section pt-100 pb-70 pt-330">
+        <div class="container">
+            <div class="row">
+                @foreach (var counter in Model.Facts)
+                {
+                    <div class="col-sm-6 col-md-6 col-lg-3">
+                        <div class="single-counter">
+                            <i class="@counter.Icon"></i>
+                            <h3 class="counter">@counter.Value</h3>
+                            <p>@counter.Key</p>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+    <!-- End counter section -->
+    <!-- Expert Doctors -->
+    <section class="expert-doctors ptb-100 gray-bg pb-70">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Expert Doctors</h2>
+                <p>We are ready to build your dream future Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, beatae. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="expert-doctors-carousel owl-carousel owl-theme owl-theme-2">
+                @foreach (var doctor in Model.Doctors)
+                {
+                    <div class="single-card">
+                        <div class="thumb-img">
+                            <img src="~/Uploads/@doctor.Photo" alt="@doctor.Name" />
+                            <div class="hover-social">
+                                <div class="d-table">
+                                    <div class="d-tablecell">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icofont-linkedin"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icofont-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icofont-facebook"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="caption-text text-center">
+                            <h3>@doctor.Name</h3>
+                            <span class="designation mb-10">@doctor.Speciality</span>
+                            <p>@doctor.Desc</p>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+    </section>
+    <!-- Edn Expert Doctors -->
+    <!-- Appointment Area -->
+    <div class="appointment-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-lg-5 p-0">
+                    <div class="contant-number">
+                        <h3><i class="icofont-phone"></i>@Model.Setting.Phone</h3>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-7 p-0">
+                    <div class="appointment-form">
+                        <h2 class="title">Make an Appointment</h2>
+                        <form action="@Url.Action("appointment","appointment")" method="post">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 pr-10">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="id_name" placeholder="Name" name="Name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pl-10">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="id_email" placeholder="Email" name="Mail">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pr-10">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="id_phone_number" placeholder="Phone Number" name="Phone">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pl-10">
+                                    <div class="form-group">
+                                        <select class="form-control" name="DepartmentID">
+                                            <option>Department</option>
+                                            @foreach (var department in Model.Departments)
+                                            {
+                                                <option value="@department.ID">@department.Name</option>
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pr-10">
+                                    <div class="form-group">
+                                        <select class="form-control" name="DoctorID">
+                                            <option>Doctor</option>
+                                            @foreach (var doctor in Model.Doctors)
+                                            {
+                                                <option value="@doctor.ID">@doctor.Name</option>
+
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 pl-10">
+                                    <div class="form-group">
+                                        <input class="form-control" id="datepicker" placeholder="Booking Date" name="Date">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" rows="4" placeholder="Message" name="Message"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn book-now-btn">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Appointment Area -->
+    <!-- Patient Feedback -->
+    
+    <!-- End Patient Feedback -->
+    <!-- CTA Area -->
+    <div class="cta-area gray-bg ptb-100">
+        <div class="container">
+            <div class="cta-text-content">
+                <h3>We are constantly evaluating and implementing ways to improve patient safety.</h3>
+                <p>Please speak up when you have questions or concerns.</p>
+
+                <div class="cta-contant">
+                    <i class="icofont-phone"></i>
+                    @Model.Setting.Phone
+                </div>
+            </div>
+
+            <div class="cta-doctor-img">
+                <img src="assets/img/doctor.png" alt="Doctor">
+            </div>
+        </div>
+    </div>
+    <!-- CTA Area -->
+    <!-- Latest news section -->
+    <section class="latest-news ptb-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest News</h2>
+                <p>We are ready to build your dream future Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, beatae. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="latest-news-carousel owl-carousel owl-theme owl-theme-2">
+                @foreach (var blog in Model.Blogs)
+                {
+                    <div class="single-card actical-card">
+                        <div class="thumb-img">
+                            <a href="#">
+                                <img src="~/Uploads/@blog.Photo" alt="@blog.Title" />
+                            </a>
+                        </div>
+
+                        <div class="caption-text">
+                            <h3><a href="#">@blog.Title</a></h3>
+
+                            <ul class="meta-tag">
+                                <li class="author">
+                                    <img src="@blog.Author.Photo" alt="@blog.Author.Name">
+                                    <a href="#">@blog.Author.Name</a>
+                                </li>
+                                <li>@blog.Date.ToString("dd MMM, yyyy") </li>
+                                <li><i class="icofont-speech-comments"></i>@blog.Comment</li>
+                            </ul>
+
+                            <p>@blog.Desc</p>
+                            <a href="@Url.Action("blogdetails","blog", new {slug = blog.Slug })" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+    </section>
+    <!-- End Latest news section -->
+    <!-- Our Newsletter -->
+    
+    <!-- End Our Newsletter -->
+    <!-- Footer -->
+  

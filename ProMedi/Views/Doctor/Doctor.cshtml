@@ -1,0 +1,103 @@
+﻿@model List<Doctor>
+@{
+    ViewBag.Title = "Doctor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Setting> settings = ViewBag.Setting as List<Setting>;
+}
+
+
+  
+    <!-- End Main header -->
+    <!-- Page Title -->
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-7">
+                    <h2>Doctors</h2>
+                </div>
+
+                <div class="col-md-6 col-lg-5">
+                    <ul>
+                        <li><a href="@Url.Action("home","home")">Home</a></li>
+                        <li>Doctors</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Title -->
+    <!-- Expert Doctors -->
+    <section class="expert-doctors ptb-100 gray-bg pb-70">
+        <div class="container">
+            <div class="row">
+                @foreach (var doctor in Model)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-card">
+                            <div class="thumb-img">
+                                <img src="~/Uploads/@doctor.Photo" alt="@doctor.Name" href="@Url.Action("home","home")" />
+                                <div class="hover-social">
+                                    <div class="d-table">
+                                        <div class="d-tablecell">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="icofont-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="icofont-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="icofont-facebook"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="caption-text text-center">
+                                <h3>@doctor.Name</h3>
+                                <span class="designation mb-10">@doctor.Category.Name</span>
+                                <p>@doctor.Info</p>
+                                <a href="@Url.Action("doctordetails","doctor",new {slug=doctor.Slug})" class="read-more">
+                                                    Read More 
+                                        <i class="icofont-swoosh-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </section>
+    <!-- Edn Expert Doctors -->
+    <!-- Call To Action -->
+    <section class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="call-to-action-text">
+                        <i class="icofont-first-aid"></i>
+                        <h3>Health Care Center</h3>
+                        <p>if you have any Emerangcy by health problem contact this <span>No. 035 687 9514</span> or contact form</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <a href="@Url.Action("contact","contact")" class="default-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Call To Action -->
+    <!-- Footer -->
+   

@@ -1,0 +1,191 @@
+﻿@model  Blog
+@{
+    ViewBag.Title = "BlogDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Blog> blogs = ViewBag.Blogs as List<Blog>;
+    List<Tag> tags = ViewBag.Tags as List<Tag>;
+    List<Blog> LastBlog = ViewBag.Latest as List<Blog>;
+
+    int indexofBlog = blogs.IndexOf(Model);
+
+    Blog next = null;
+    Blog prev = null;
+
+    if (indexofBlog != 0)
+    {
+        prev = blogs[indexofBlog - 1];
+    }
+
+    if (indexofBlog != blogs.Count() - 1)
+    {
+        next = blogs[indexofBlog + 1];
+    }
+}
+
+
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-7">
+                    <h2>Blog Details</h2>
+                </div>
+
+                <div class="col-md-6 col-lg-5">
+                    <ul>
+                        <li><a href="@Url.Action("home","home")">Home</a></li>
+                        <li>Blog Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <section class="blog-details-area gray-bg ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="blog-details">
+                        <div class="article-img">
+                            <img src="~/Uploads/@Model.Photo" alt="@Model.Title">
+                            <div class="date">20 <br> Jan</div>
+                        </div>
+
+                        <div class="article-content">
+                            <ul class="category">
+                                
+                                    <li><a href="#">@Model.Category.Name</a></li>
+
+                                
+
+                            </ul>
+
+                            <h3>@Model.Title</h3>
+
+
+                            <p>@Model.Desc</p>
+
+                            <blockquote class="blockquote">
+                                <p>@Model.Blockquote</p>
+                            </blockquote>
+
+
+                            <div class="share-post">
+                                <ul>
+                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                    <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                                    <li><a href="#"><i class="icofont-vimeo"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-controls-buttons">
+                        <div class="controls-left">
+                            @if (prev != null)
+                            {
+                                <a href="@Url.Action("blogdetails","blog" , new {slug = prev.Slug })"><i class="icofont-double-left"></i> Prev Post</a>
+                            }
+                        </div>
+
+                        <div class="controls-right">
+                            @if (next != null)
+                            {
+                                <a href="@Url.Action("blogdetails","blog" , new {slug = next.Slug })">Next Post <i class="icofont-double-right"></i></a>
+                            }
+                        </div>
+                    </div>
+
+                  
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="side-bar">
+                        <div class="widget search-box">
+                            <form>
+                                <input type="text" class="form-control" id="search-box" name="search" placeholder="Search for...">
+                                <button type="submit" class="default-btn"><i class="icofont-ui-search"></i></button>
+                            </form>
+                        </div>
+
+                        <div class="widget latest-post">
+                            <h4 class="title">Latest Post</h4>
+                            @foreach (var latest in LastBlog)
+                            {
+                                <div class="single-post">
+                                    <div class="img">
+                                        <a href="#"><img src="~/Uploads/@latest.Photo" alt="latest-post"></a>
+                                    </div>
+
+                                    <div class="content">
+                                        <ul>
+                                            <li>Posted by <a href="#">@latest.Author.Name</a></li>
+                                        </ul>
+                                        <h4><a href="#">@latest.Title</a></h4>
+                                    </div>
+                                </div>
+
+                            }
+
+
+                        </div>
+
+                        <div class="widget categories">
+                            <h3 class="title">Categories</h3>
+
+                            <ul>
+                                @foreach (var cat in blogs)
+                                {
+                                    <li><a href="#"><i class="icofont-double-right"></i>@cat.Category.Name</a></li>
+
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="widget popular-tags">
+                            <h3 class="title">Popular Tags</h3>
+
+                            <ul>
+                                @foreach (var tag in tags)
+                                {
+                                    <li>
+                                        <a href="#">
+                                            @tag.Name
+                                        </a>
+                                    </li>
+                                }
+
+
+                            </ul>
+                        </div>
+
+                        <div class="widget quick-contact mb-0">
+                            <h4>Quick contact to help?</h4>
+                            <p>Excepteur sint occaecat non proident, sunt in culpa officia deserunt mollit anim id est laborum.</p>
+                            <a href="@Url.Action("contact","contact")">Contact Us <span class="right"><i class="icofont-double-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="call-to-action-text">
+                        <i class="icofont-first-aid"></i>
+                        <h3>Health Care Center</h3>
+                        <p>if you have any Emerangcy by health problem contact this <span>No. 035 687 9514</span> or contact form</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <a href="@Url.Action("contact","contact")" class="default-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+   

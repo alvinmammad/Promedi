@@ -1,0 +1,30 @@
+﻿@model List<Blog>
+
+@foreach (var blog in Model)
+{
+    <div class="single-card actical-card">
+        <div class="thumb-img">
+            <a href="#">
+                <img src="assets/img/news/1.jpg" alt="News Image" />
+            </a>
+        </div>
+
+        <div class="caption-text">
+            <h3><a href="#">Baby Talk: Is Surrogacy An Option?</a></h3>
+
+            <ul class="meta-tag">
+                <li class="author">
+                    <img src="assets/img/patient/1.jpg" alt="">
+                    <a href="#">Dr. Jacson</a>
+                </li>
+                <li>5 Jan, 2019</li>
+                <li><i class="icofont-speech-comments"></i> 30</li>
+            </ul>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+
+            <a href="#" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
+        </div>
+    </div>
+
+}

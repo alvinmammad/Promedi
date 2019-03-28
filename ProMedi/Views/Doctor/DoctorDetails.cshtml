@@ -1,0 +1,92 @@
+﻿@model Doctor
+@{
+    ViewBag.Title = "DoctorDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-7">
+                    <h2>Doctor</h2>
+                </div>
+
+                <div class="col-md-6 col-lg-5">
+                    <ul>
+                        <li><a href="@Url.Action("home","home")">Home</a></li>
+                        <li>Doctor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Title -->
+    <!-- Doctors Details section -->
+    <section class="doctors-details ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="doctors-details">
+                        <div class="img">
+                            <img src="assets/img/slider/1.jpg" alt="department-details">
+                        </div>
+
+                        <div class="doctors-desc">
+                            <h3>@Model.Name</h3>
+                            <p>@Model.Desc</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="doctors-sidebar">
+                        <div class="doctors-info">
+                            <h4>Profile Details</h4>
+                            <ul>
+                                <li>Address: <span>@Model.Address</span></li>
+                                <li>Phone: <span>@Model.Phone</span></li>
+                                <li>Email: <span><a href="mailto:elvinem@code.edu.az">@Model.Email</a></span></li>
+                                <li>Speciality: <span>@Model.Speciality</span></li>
+                                <li>Degree: <span>@Model.Degree</span></li>
+                                <li>Expert in: <span>@Model.ExpertIn</span></li>
+                                <li>Categories: <span><a href="#">@Model.Category.Name</a></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="doctors-social">
+                            <ul>
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Doctors Details section -->
+    <!-- Call To Action -->
+    <section class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="call-to-action-text">
+                        <i class="icofont-first-aid"></i>
+                        <h3>Health Care Center</h3>
+                        <p>if you have any Emerangcy by health problem contact this <span>No. 035 687 9514</span> or contact form</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <a href="@Url.Action("contact","contact")" class="default-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Call To Action -->
+    <!-- Footer -->
+   

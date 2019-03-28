@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using ProMedi.DAL;
+using ProMedi.Models;
+using ProMedi.ViewModels;
 namespace ProMedi.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        public ActionResult Index()
+        // GET: Home
+        public ActionResult Home()
         {
-            return View();
+            VmHome home = new VmHome
+            {
+                About = _context.Abouts.FirstOrDefault(),
+                Blogs = _context.Blogs.ToList(),
+                Contact = _context.Contacts.FirstOrDefault(),
+                Departments = _context.Departments.ToList(),
+                Doctors = _context.Doctors.ToList(),
+                Facts = _context.Facts.ToList(),
+                HomeCards = _context.HomeCards.Take(3).ToList(),
+                HomeExperience = _context.HomeExperiences.FirstOrDefault(),
+                Setting = _context.Settings.FirstOrDefault()
+            };
+            return View(home);
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
     }
 }

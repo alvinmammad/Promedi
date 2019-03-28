@@ -1,0 +1,100 @@
+﻿@model VmDepartment
+@{
+    ViewBag.Title = "Department";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-7">
+                    <h2>Department</h2>
+                </div>
+
+                <div class="col-md-6 col-lg-5">
+                    <ul>
+                        <li><a href="@Url.Action("home","home")">Home</a></li>
+                        <li>Department</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <section class="department-details ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="department-details">
+                        <div class="img">
+                            <img src="~/Uploads/@Model.Department.Photo" alt="@Model.Department.Name">
+                        </div>
+
+                        <div class="department-desc">
+                            <h3>@Model.Department.Title</h3>
+                            <p>@Model.Department.Desc</p>
+                        </div>
+
+                        <div class="share-department">
+                            <h4>Like this department?</h4>
+
+                            <ul>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Instagram</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="department-sidebar">
+                        <div class="department-info">
+                            <h4>Head of Department</h4>
+                            <ul>
+                                <li>@Model.Department.HeadType<span>@Model.Department.HeadDoctor</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="department-info">
+                            <h4>Event Hours</h4>
+                            <ul>
+                                <li>@Model.Department.EventHours<span>@Model.Department.EventType</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="department-info mb-0">
+                            <h4>Contacts</h4>
+                            <ul>
+                                <li>Address: <span>@Model.Setting.Location</span></li>
+                                <li>Email: <span><a href="#">@Model.Contact.Email</a></span></li>
+                                <li>Call Us: <span>@Model.Setting.Phone</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="call-to-action-text">
+                        <i class="icofont-first-aid"></i>
+                        <h3>Health Care Center</h3>
+                        <p>if you have any Emerangcy by health problem contact this <span>@Model.Setting.Phone</span> or contact form</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <a href="@Url.Action("contact","contact")" class="default-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+   

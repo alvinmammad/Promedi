@@ -1,0 +1,175 @@
+﻿@model VmBlog
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Blog> LastBlog = ViewBag.Latest as List<Blog>;
+    List<Tag> Tags = ViewBag.Tags as List<Tag>;
+
+}
+
+
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-7">
+                    <h2>Blog</h2>
+                </div>
+
+                <div class="col-md-6 col-lg-5">
+                    <ul>
+                        <li><a href="@Url.Action("home","home")">Home</a></li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <section class="latest-news ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            @foreach (var blog in Model.Blogs)
+                            {
+                                <div class="single-card actical-card">
+                                    <div class="thumb-img">
+                                        <a href="#">
+                                            <img src="~/Uploads/@blog.Photo" alt="@blog.Title" />
+                                        </a>
+                                    </div>
+
+                                    <div class="caption-text">
+                                        <h3><a href="@Url.Action("blogdetails","blog",new {slug = blog.Slug})">@blog.Title</a></h3>
+
+                                        <ul class="meta-tag">
+                                            <li class="author">
+                                                <img src="~/Uploads/@blog.Author.Photo" alt="">
+                                                <a href="#">@blog.Author.Name</a>
+                                            </li>
+                                            <li>5 Jan, 2019</li>
+                                            <li><i class="icofont-speech-comments"></i>@blog.Comment</li>
+                                        </ul>
+
+                                        <p>@blog.Desc</p>
+
+                                        <a href="@Url.Action("blogdetails","blog",new {blog.Slug })" class="read-more">Read More <i class="icofont-swoosh-right"></i></a>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+                       
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="pagination-area">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center">
+                                        @if (Model.ActivePage != 1)
+                                        {
+                                            <li class="page-item"><a class="page-link" href="@Url.Action("blog","blog", new {page=Model.ActivePage-1})"><i class="icofont-hand-drawn-left"></i></a></li>
+                                        }
+
+                                        @for (int i = 1; i < Model.TotalPage; i++)
+                                        {
+                                            <li class="page-item @(Model.ActivePage==i?"active":"")"><a class="page-link" href="@Url.Action("blog","blog", new {page=i })">@i</a></li>
+
+                                        }
+                                        @if (Model.ActivePage != Model.TotalPage)
+                                        {
+                                            <li class="page-item"><a class="page-link" href="@Url.Action("blog","blog", new {page=Model.ActivePage+1})"><i class="icofont-hand-drawn-right"></i></a></li>
+                                        }
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="side-bar">
+                        <div class="widget search-box">
+                            <form>
+                                <input type="text" class="form-control" id="search-box" name="search" placeholder="Search for...">
+                                <button type="submit" class="default-btn"><i class="icofont-ui-search"></i></button>
+                            </form>
+                        </div>
+
+                        <div class="widget latest-post">
+                            <h4 class="title">Latest Post</h4>
+                            @foreach (var latest in LastBlog)
+                            {
+                                <div class="single-post">
+                                    <div class="img">
+                                        <a href="#"><img src="~/Uploads/@latest.Photo" alt="@latest.Title"></a>
+                                    </div>
+
+                                    <div class="content">
+                                        <ul>
+                                            <li>Posted by <a href="#">@latest.Author.Name</a></li>
+                                        </ul>
+                                        <h4><a href="#">@latest.Title</a></h4>
+                                    </div>
+                                </div>
+
+                            }
+
+                        </div>
+
+                        <div class="widget categories">
+                            <h3 class="title">Categories</h3>
+
+                            <ul>
+                                @foreach (var category in Model.Categories.ToList())
+                                {
+                                    <li><a href="@Url.Action("blog","blog" , new {category=category.ID })"><i class="icofont-double-right"></i>@category.Name</a></li>
+                                }
+                               
+                            </ul>
+                        </div>
+
+                        <div class="widget popular-tags">
+                            <h3 class="title">Popular Tags</h3>
+
+                            <ul>
+                                @foreach (var tag in Tags)
+                                {
+                                    <li><a href="#">@tag.Name</a></li>
+                                }
+
+
+                            </ul>
+                        </div>
+
+                        <div class="widget quick-contact mb-0">
+                            <h4>Quick contact to help?</h4>
+                            <p>Excepteur sint occaecat non proident, sunt in culpa officia deserunt mollit anim id est laborum.</p>
+                            <a href="@Url.Action("contact","contact")">Contact Us <span class="right"><i class="icofont-double-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="call-to-action-text">
+                        <i class="icofont-first-aid"></i>
+                        <h3>Health Care Center</h3>
+                        <p>if you have any Emerangcy by health problem contact this <span>No. 035 687 9514</span> or contact form</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <a href="#" class="default-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    

@@ -1,42 +1,286 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@{ 
+    Setting setting = ViewBag.Setting as Setting;
+    List<Department> departments = ViewBag.Departments as List<Department>;
+}
+<!doctype html>
+<html lang="zxx">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap Min CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/bootstrap.min.css">
+    <!-- IcoFont Min CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/icofont.min.css">
+    <!-- Owl Carousel Min CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/owl.carousel.min.css">
+    <!-- Owl Theme Default Min CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/owl.theme.default.min.css">
+    <!-- Animate Min CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/animate.min.css">
+    <!-- Magnific Popup Min CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/magnific-popup.css">
+    <!-- Jquery UI CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/jquery.ui.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/responsive.css">
+    @*@Styles.Render("~/Content/css")*@
+
+    <title>ProMedi - Medical HTML Template</title>
+
+    <link rel="icon" type="image/png" href="~/Content/assets/img/favicon.png">
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    <div class="preloader">
+            <div class="d-table">
+                <div class="d-tablecell">
+                    <div class="lds-heart">
+                        <div></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <header class="main-header">
+        <!-- Header info text-->
+        <div class="header-info-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-lg-6">
+                        <ul class="contact-info">
+                            <li>
+                                <i class="icofont-phone"></i>
+                                Call us: @setting.Phone
+                            </li>
+                            <li>
+                                <i class="icofont-location-pin"></i>
+                                @setting.Location
+                            </li>
+                        </ul>
+                    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+                    <div class="col-md-4 col-lg-6">
+                        <ul class="social-links">
+                            <li>
+                                <a href="#">
+                                    <i class="icofont-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icofont-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icofont-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icofont-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icofont-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header info text -->
+        <!-- Navbar -->
+        <div class="navbar-container header-sticky">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <a class="navbar-brand" href="@Url.Action("home","home")">
+                        <img src="~/Content/assets/img/logo.png" alt="Promedi">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav m-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href="@Url.Action("home","home")" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false">
+                                    Home
+                                </a>
+                               
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("about","about")">About</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Departments
+                                </a>
+                                <div class="dropdown-menu">
+                                    @foreach (var department in departments)
+                                    {
+                                        <a class="dropdown-item" href="@Url.Action("department","department" , new {slug=department.Slug})">@department.Name</a>
+                                    }
+
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pages
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Services</a>
+                                    <a class="dropdown-item" href="@Url.Action("doctor","doctor")">Our Doctor</a>
+                                    <a class="dropdown-item" href="@Url.Action("doctordetails","doctor")">Single Doctor</a>
+                                    <a class="dropdown-item" href="@Url.Action("appointment","appointment")">Book Appoinment</a>
+                                   
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Blog
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="@Url.Action("blog","blog")">Blog</a>
+                                    <a class="dropdown-item" href="@Url.Action("blogdetails","blog")">Single Blog</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item active">
+                                <a class="nav-link" href="@Url.Action("contact","contact")">Contact</a>
+                            </li>
+                        </ul>
+
+                        <div class="appointment-inline my-lg-0">
+                            <a href="@Url.Action("appointment","appointment")" class="appointment-btn">
+                                Make an Appointment
+                                <i class="icofont-simple-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- End Navbar -->
+    </header>
+    @RenderBody()
+    <footer class="pt-100 pb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="footer-widget">
+                        <a href="#" class="footer-logo">
+                            <img src="~/Content/assets/img/logo.png" alt="Promedi">
+                        </a>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+
+                        <ul class="socials-links">
+                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                            <li><a href="#"><i class="icofont-google-plus"></i></a></li>
+                            <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <div class="footer-widget">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="@Url.Action("home","home")">Home</a></li>
+                            <li><a href="@Url.Action("about","about")">About</a></li>
+                            <li><a href="@Url.Action("doctor","doctor")">Doctors</a></li>
+                            <li><a href="@Url.Action("service","service")">Service</a></li>
+                            <li><a href="@Url.Action("blog","blog")">Blog</a></li>
+                            <li><a href="@Url.Action("contact","contact")">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="footer-widget">
+                        <h3>Departments</h3>
+                        <ul>
+                            @foreach (var department in departments)
+                            {
+                                <li><a href="#">@department.Name</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <div class="footer-widget">
+                        <h3>Contact Us</h3>
+                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.</p>
+
+                        <div class="foot-contact-info">
+                            <i class="icofont-phone"></i>
+                            <p>@setting.Phone
+                        </div>
+
+                        <div class="foot-contact-info">
+                            <i class="icofont-email"></i>
+                            <p>elvinem@code.edu.az
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="separate-line"></div>
+
+            <div class="row bottom-footer">
+                <div class="col-md-6 col-lg-6">
+                    <p>Copyright @@ 2019, Promedi. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <ul>
+                        <li><a href="#">Privac Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <!-- Popper Min JS -->
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <!-- Bootstrap Min JS -->
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <!-- Owl Carousel Min JS -->
+    <script src="~/Content/assets/js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup Min JS -->
+    <script src="~/Content/assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Waypoints Min JS -->
+    <script src="~/Content/assets/js/waypoints.min.js"></script>
+    <!-- Counter UP Min JS -->
+    <script src="~/Content/assets/js/jquery.counterup.min.js"></script>
+    <!-- Jquery UI JS -->
+    <script src="~/Content/assets/js/jquery.ui.js"></script>
+    <!-- ajaxChimp Min JS -->
+    <script src="~/Content/assets/js/jquery.ajaxchimp.min.js"></script>
+    <!-- Form Validator JS -->
+    <script src="~/Content/assets/js/form-validator.min.js"></script>
+    <!-- Contact Form JS -->
+    <script src="~/Content/assets/js/contact-form-script.js"></script>
+    <!-- Map API JS FILES -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApghCIIx9MpQhA768sKXxvR_Okg0SF2k4&amp;callback=initMap"></script>
+    <!-- Fox Map JS FILE -->
+    <script src="~/Content/assets/js/promedi-map.js"></script>
+    <!-- Main JS -->
+    <script src="~/Content/assets/js/script.js"></script>
+
 </body>
 </html>

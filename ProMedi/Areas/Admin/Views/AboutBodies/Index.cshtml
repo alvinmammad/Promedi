@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ProMedi.Models.AboutBody>
 
 @{
-    ViewBag.Title = "Index";
+
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -30,9 +30,9 @@
             @Html.DisplayFor(modelItem => item.Desc)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID}, new {@class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

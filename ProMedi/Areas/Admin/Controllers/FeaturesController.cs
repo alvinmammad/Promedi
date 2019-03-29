@@ -6,11 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProMedi.Areas.Admin.Filters;
 using ProMedi.DAL;
 using ProMedi.Models;
 
 namespace ProMedi.Areas.Admin.Controllers
 {
+    [Auth]
     public class FeaturesController : Controller
     {
         private ProMediContext db = new ProMediContext();

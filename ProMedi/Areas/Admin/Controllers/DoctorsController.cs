@@ -6,11 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProMedi.Areas.Admin.Filters;
+using ProMedi.Areas.Admin.Helpers;
 using ProMedi.DAL;
 using ProMedi.Models;
 
 namespace ProMedi.Areas.Admin.Controllers
 {
+    [Auth]
     public class DoctorsController : Controller
     {
         private ProMediContext db = new ProMediContext();
@@ -49,8 +52,16 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Desc,Photo,Info,Address,Phone,Email,Speciality,Degree,ExpertIn,Slug,CategoryID")] Doctor doctor)
+        public ActionResult Create([Bind(Include = "ID,Name,Desc,Photo,Info,Address,Phone,Email,Speciality,Degree,ExpertIn,Slug,CategoryID")] Doctor doctor,HttpPostedFileBase Photo)
         {
+            if (Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Please Select file");
+            }
+            else
+            {
+                doctor.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.Doctors.Add(doctor);
@@ -83,8 +94,13 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Desc,Photo,Info,Address,Phone,Email,Speciality,Degree,ExpertIn,Slug,CategoryID")] Doctor doctor)
+        public ActionResult Edit([Bind(Include = "ID,Name,Desc,Photo,Info,Address,Phone,Email,Speciality,Degree,ExpertIn,Slug,CategoryID")] Doctor doctor,HttpPostedFileBase Photo)
         {
+            if (Photo != null)
+            {
+                FileManager.Delete(doctor.Photo);
+                doctor.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(doctor).State = EntityState.Modified;

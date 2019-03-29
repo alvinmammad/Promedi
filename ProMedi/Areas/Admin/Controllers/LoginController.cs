@@ -31,7 +31,7 @@ namespace ProMedi.Areas.Admin.Controllers
             if (string.IsNullOrEmpty(admin.Email) || string.IsNullOrEmpty(admin.Password))
             {
                 Session["LoginError"] = "E-poçt və ya şifrə boş olmamalıdır !";
-                return RedirectToAction("index");
+                return RedirectToAction("index","login");
             }
 
             Boss adm = _context.Bosses.FirstOrDefault(a => a.Email == admin.Email);
@@ -41,7 +41,7 @@ namespace ProMedi.Areas.Admin.Controllers
                 {
                     Session["AdminLogin"] = true;
                     Session["Admin"] = adm;
-                    return RedirectToAction("index", "blog");
+                    return RedirectToAction("index", "blogs");
                 }
             }
 

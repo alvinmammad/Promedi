@@ -17,14 +17,16 @@ namespace ProMedi.Areas.Admin.Helpers
             return filename;
         }
 
-        public static void Delete(string filename)
+        public static bool Delete(string filename)
         {
             string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Uploads"), filename);
-
+           
             if (File.Exists(path))
             {
                 File.Delete(path);
+                return true;
             }
+            return false;
         }
     }
 }

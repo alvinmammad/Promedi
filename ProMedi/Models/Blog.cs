@@ -13,7 +13,7 @@ namespace ProMedi.Models
         public int ID { get; set; }
         [StringLength(maximumLength:45)]
         public string Title { get; set; }
-        [StringLength(maximumLength: 150)]
+        [StringLength(maximumLength: 1000)]
         public string Desc { get; set; }
         [StringLength(maximumLength: 250)]
 

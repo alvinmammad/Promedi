@@ -6,11 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProMedi.Areas.Admin.Filters;
+using ProMedi.Areas.Admin.Helpers;
 using ProMedi.DAL;
 using ProMedi.Models;
 
 namespace ProMedi.Areas.Admin.Controllers
 {
+    [Auth]
     public class BlogsController : Controller
     {
         private ProMediContext db = new ProMediContext();
@@ -50,8 +53,16 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Desc,Photo,Blockquote,Date,Comment,Slug,CategoryID,AuthorID")] Blog blog)
+        public ActionResult Create([Bind(Include = "ID,Title,Desc,Photo,Blockquote,Date,Comment,Slug,CategoryID,AuthorID")] Blog blog,HttpPostedFileBase Photo)
         {
+            if (Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Please Select file");
+            }
+            else
+            {
+                blog.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.Blogs.Add(blog);
@@ -86,8 +97,13 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Desc,Photo,Blockquote,Date,Comment,Slug,CategoryID,AuthorID")] Blog blog)
+        public ActionResult Edit([Bind(Include = "ID,Title,Desc,Photo,Blockquote,Date,Comment,Slug,CategoryID,AuthorID")] Blog blog,HttpPostedFileBase Photo)
         {
+            if (Photo != null)
+            {
+                FileManager.Delete(blog.Photo);
+                blog.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(blog).State = EntityState.Modified;

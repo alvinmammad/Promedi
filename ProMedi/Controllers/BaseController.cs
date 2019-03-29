@@ -16,6 +16,7 @@ namespace ProMedi.Controllers
             ViewBag.Setting = _context.Settings.First();
             ViewBag.Tags = _context.Tags.OrderByDescending(t=>t.Name).ToList();
             ViewBag.Latest = _context.Blogs.Include("Author").OrderByDescending(l => l.Date).Take(3).ToList();
+            
             ViewBag.Departments = _context.Departments.ToList();
             
         }

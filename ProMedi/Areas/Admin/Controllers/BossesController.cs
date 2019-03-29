@@ -5,12 +5,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
+using ProMedi.Areas.Admin.Filters;
 using ProMedi.Areas.Admin.Models;
 using ProMedi.DAL;
 
 namespace ProMedi.Areas.Admin.Controllers
 {
+    [Auth]
     public class BossesController : Controller
     {
         private ProMediContext db = new ProMediContext();
@@ -51,6 +54,7 @@ namespace ProMedi.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                boss.Password = Crypto.HashPassword(boss.Password);
                 db.Bosses.Add(boss);
                 db.SaveChanges();
                 return RedirectToAction("Index");

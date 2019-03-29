@@ -6,11 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProMedi.Areas.Admin.Filters;
+using ProMedi.Areas.Admin.Helpers;
 using ProMedi.DAL;
 using ProMedi.Models;
 
 namespace ProMedi.Areas.Admin.Controllers
 {
+    [Auth]
     public class AuthorsController : Controller
     {
         private ProMediContext db = new ProMediContext();
@@ -47,8 +50,16 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Photo")] Author author)
+        public ActionResult Create([Bind(Include = "ID,Name,Photo")] Author author,HttpPostedFileBase Photo)
         {
+            if (Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Please Select file");
+            }
+            else
+            {
+                author.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.Authors.Add(author);
@@ -79,8 +90,13 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Photo")] Author author)
+        public ActionResult Edit([Bind(Include = "ID,Name,Photo")] Author author, HttpPostedFileBase Photo)
         {
+            if (Photo != null)
+            {
+                FileManager.Delete(author.Photo);
+                author.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(author).State = EntityState.Modified;
@@ -98,6 +114,8 @@ namespace ProMedi.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Author author = db.Authors.Find(id);
+
+
             if (author == null)
             {
                 return HttpNotFound();
@@ -108,13 +126,22 @@ namespace ProMedi.Areas.Admin.Controllers
         // POST: Admin/Authors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id)
         {
-            Author author = db.Authors.Find(id);
-            db.Authors.Remove(author);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (id!=null)
+            {
+                Author author = db.Authors.Find(id);
+
+                if (FileManager.Delete(author.Photo)){
+                    db.Authors.Remove(author);
+                    db.SaveChanges();
+                }
+                
+                return RedirectToAction("Index");
+            }
+            return View();
         }
+            
 
         protected override void Dispose(bool disposing)
         {

@@ -258,6 +258,10 @@
     <Compile Include="Migrations\201903281629303_bossAdded.Designer.cs">
       <DependentUpon>201903281629303_bossAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903291536150_blogDescLength.cs" />
+    <Compile Include="Migrations\201903291536150_blogDescLength.Designer.cs">
+      <DependentUpon>201903291536150_blogDescLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\AboutBody.cs" />
@@ -2347,6 +2351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903281629303_bossAdded.resx">
       <DependentUpon>201903281629303_bossAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291536150_blogDescLength.resx">
+      <DependentUpon>201903291536150_blogDescLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

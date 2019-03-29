@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<ProMedi.Models.Blog>
 
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -57,7 +56,7 @@
             @Html.DisplayFor(modelItem => item.Desc)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Photo)
+            <img src="~/Uploads/@item.Photo" width="100"  />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Blockquote)

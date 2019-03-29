@@ -6,11 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProMedi.Areas.Admin.Filters;
+using ProMedi.Areas.Admin.Helpers;
 using ProMedi.DAL;
 using ProMedi.Models;
 
 namespace ProMedi.Areas.Admin.Controllers
 {
+    [Auth]
     public class DepartmentsController : Controller
     {
         private ProMediContext db = new ProMediContext();
@@ -47,8 +50,16 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,EventHours,Name,Title,Desc,EventType,Address,Email,Phone,Photo,Icon,HeadType,HeadDoctor,Slug")] Department department)
+        public ActionResult Create([Bind(Include = "ID,EventHours,Name,Title,Desc,EventType,Address,Email,Phone,Photo,Icon,HeadType,HeadDoctor,Slug")] Department department ,HttpPostedFileBase Photo)
         {
+            if (Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Please Select file");
+            }
+            else
+            {
+                department.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.Departments.Add(department);
@@ -79,8 +90,13 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,EventHours,Name,Title,Desc,EventType,Address,Email,Phone,Photo,Icon,HeadType,HeadDoctor,Slug")] Department department)
+        public ActionResult Edit([Bind(Include = "ID,EventHours,Name,Title,Desc,EventType,Address,Email,Phone,Photo,Icon,HeadType,HeadDoctor,Slug")] Department department,HttpPostedFileBase Photo)
         {
+            if (Photo != null)
+            {
+                FileManager.Delete(department.Photo);
+                department.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(department).State = EntityState.Modified;

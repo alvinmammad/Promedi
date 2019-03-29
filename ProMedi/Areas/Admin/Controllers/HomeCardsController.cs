@@ -6,11 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProMedi.Areas.Admin.Filters;
+using ProMedi.Areas.Admin.Helpers;
 using ProMedi.DAL;
 using ProMedi.Models;
 
 namespace ProMedi.Areas.Admin.Controllers
 {
+    [Auth]
     public class HomeCardsController : Controller
     {
         private ProMediContext db = new ProMediContext();
@@ -47,8 +50,16 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Photo,Name,Title")] HomeCard homeCard)
+        public ActionResult Create([Bind(Include = "ID,Photo,Name,Title")] HomeCard homeCard,HttpPostedFileBase Photo)
         {
+            if (Photo == null)
+            {
+                ModelState.AddModelError("Photo", "Please Select file");
+            }
+            else
+            {
+                homeCard.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.HomeCards.Add(homeCard);
@@ -79,8 +90,13 @@ namespace ProMedi.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Photo,Name,Title")] HomeCard homeCard)
+        public ActionResult Edit([Bind(Include = "ID,Photo,Name,Title")] HomeCard homeCard,HttpPostedFileBase Photo)
         {
+            if (Photo != null)
+            {
+                FileManager.Delete(homeCard.Photo);
+                homeCard.Photo = FileManager.Upload(Photo);
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(homeCard).State = EntityState.Modified;
